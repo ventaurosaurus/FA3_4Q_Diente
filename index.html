@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+</head>
+<body>
+    <h2>Random Number Generator</h2>
+    <button onclick="generateAndPrintRandomNumber()">Generate Number</button>
+    <div id="output"></div>
+
+    <script>
+        function generateAndPrintRandomNumber() {
+            
+            const randomNumber = Math.floor(Math.random() * 1001);
+            
+            
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleString();
+            
+           
+            const ones = randomNumber % 10;
+            const tens = Math.floor((randomNumber % 100) / 10) * 10;
+            const hundreds = Math.floor(randomNumber / 100) * 100;
+            
+            
+            const randomNumberString = `Randomly generated number: ${randomNumber}`;
+            const breakdownString = `Breakdown: ${hundreds}, ${tens}, ${ones}`;
+            const dateString = `Date: ${formattedDate}`;
+            
+            
+            document.getElementById("output").innerHTML = `
+                <p>${randomNumberString}</p>
+                <p>${breakdownString}</p>
+                <p>${dateString}</p>
+            `;
+        }
+
+    </script>
+</body>
+</html>
